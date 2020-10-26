@@ -1,4 +1,4 @@
-
+//判断是长按还是点击还是移动
 {/* <div v-if="total != 0" class="project-details" 
     @touchstart.prevent="goTouchstart(item)"
     @touchmove="goTouchmove(item)" 

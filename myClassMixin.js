@@ -1,3 +1,4 @@
+//类混杂模式
 function mix(...mixins) {
   class Mix {
     constructor() {

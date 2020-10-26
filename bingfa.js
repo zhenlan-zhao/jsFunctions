@@ -303,7 +303,7 @@ var detalWithItem = item => new Promise((resolve,reject) => {
   setTimeout(() => {
     return resolve(item);
   }, 1000);
-
+});
 var data = []
 async function myResult () {
   try {
