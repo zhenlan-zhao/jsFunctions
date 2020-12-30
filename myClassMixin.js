@@ -12,6 +12,7 @@ function mix(...mixins) {
     copyProperties(Mix.prototype, mixin.prototype); //拷贝原型属性
   }
   
+  return Mix;
 }
 
 function copyProperties(target, source) {
@@ -21,4 +22,9 @@ function copyProperties(target, source) {
       Object.defineProperty(target,key,desc)
     }
   }
+}
+
+// application: Loggable, Serializable都是类
+class DistributedEdit extends mix(Loggable, Serializable) {
+  // ...
 }

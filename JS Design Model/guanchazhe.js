@@ -52,6 +52,32 @@ let o2 = new Obeserver('o2',s);
 
 s.setState(12);
 
+//基于proxy的观察者模式
+
+const queueObserver = new Set();
+
+const observe = fn => queueObserver.add(fn);
+const obeservable = obj => new Proxy(obj, {set});
+
+function set (target, key, value, receiver) {
+  let result = Reflect.set(target,key,value,receiver);
+  queueObserver.forEach(observer => observer());
+  return result;
+}
+
+const person = observable({
+  name: '张三',
+  age: 20
+});
+
+function print() {
+  console.log(`${person.name}, ${person.age}`)
+}
+
+observe(print);
+person.name = '李四'; //// 李四, 20
+
+
 
 
 
